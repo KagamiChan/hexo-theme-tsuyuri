@@ -1,7 +1,22 @@
 <%- partial('_partial/head') %>
 <body>
   <div id="main-wrapper">
-    <%- body %>
+    <header id="site-header">
+      <div id="title-wrapper">
+        <h1 id="site-tile"><%- config.title %></h1>
+        <% if(config.subtitle) { %> <h2 id="site-subtitle"><%- site.subtitle %></h2> <% } %>
+      </div>
+      <nav>
+
+      </nav>
+    </header>
+
+    <div id="body-wrapper">
+      <%- body %>
+    </div>
+    <footer id="site-footer">
+
+    </footer>
   </div>
 </body>
 </html>
