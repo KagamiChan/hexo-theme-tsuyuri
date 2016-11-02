@@ -1,4 +1,4 @@
 <% page.posts.each(function(post){ %>
-  <div><a href="<%- url_for(post.path) %>" ><%- post.title || __("Untitled") %></a></div>
+  <div  class="post"><a href="<%- url_for(post.path) %>" ><%- post.title || __("Untitled") %></a></div>
 <% }) %>
 <%- paginator() %>
