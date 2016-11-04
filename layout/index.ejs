@@ -1,4 +1,15 @@
+<div class="content-main">
 <% page.posts.each(function(post){ %>
-  <div  class="post"><a href="<%- url_for(post.path) %>" ><%- post.title || __("Untitled") %></a></div>
+  <div  class="list-entry">
+  <span class="list-entry-date"><%- date(post.date, 'L') %></span>
+  <a href="<%- url_for(post.path) %>" >
+  <div class="list-entry-title">
+  <%- truncate(post.title, 30) || __("无标题") %>
+  </div>
+  </a>
+  </div>
 <% }) %>
+<div id="paginator">
 <%- paginator() %>
+<div>
+</div>

@@ -3,7 +3,7 @@
   <div id="main-wrapper">
     <header id="site-header">
       <div id="title-wrapper">
-        <h1 id="site-tile"><%- config.title %></h1>
+        <a href="<%- url_for()  %>"><h1 id="site-tile"><%- config.title %></h1></a>
         <% if(config.subtitle) { %> <h2 id="site-subtitle"><%- site.subtitle %></h2> <% } %>
       </div>
       <nav>
@@ -15,7 +15,10 @@
       <%- body %>
     </div>
     <footer id="site-footer">
-
+      <div>
+  自豪地使用 Hexo 驱动 | 使用 Kagami 制作的 tsuyuri 主题。 | 托管于 Linode <br/>
+  (c)2013-<script>document.write(new Date().getFullYear());</script> 鏡 ＠ がんばらないプロジェクト/夜ノ森工房
+      </div>
     </footer>
   </div>
 </body>

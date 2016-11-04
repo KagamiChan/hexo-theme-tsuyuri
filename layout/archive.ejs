@@ -1,3 +1,5 @@
+<div class="content-main">
 <% site.posts.each(function(post){ %>
   <div><span><%- date(post.date) %></span><a href="<%- url_for(post.path) %>" ><%- post.title || __("Untitled") %></a></div>
 <% }) %>
+</div>
