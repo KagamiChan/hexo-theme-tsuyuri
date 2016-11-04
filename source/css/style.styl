@@ -5,7 +5,7 @@
 @import "_jeet"
 
 // global-reset()
- debug()
+
 
 $jeet = {
   gutter: 3,
@@ -71,6 +71,8 @@ body
   left 0
   padding 1rem
   color: color-font
+  font-size: 80%
+  line-height: 1.5
 
 #site-header h1
   margin-top: 0
@@ -104,6 +106,9 @@ body
 
 #paginator a
   color color-font
+
+#paginator .space
+  padding: 0 1em
 
 #paginator .page-number
 #paginator .extend
@@ -146,6 +151,9 @@ body
   @media screen and (max-width: breakpoint)
     unmove()
     stack()
+  line-height: 1.75
+  padding-top: 1em
+  text-justify auto
 
 img
   max-width 100%
