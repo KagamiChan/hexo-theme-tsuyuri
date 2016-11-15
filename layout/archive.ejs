@@ -1,5 +1,17 @@
 <div class="content-main">
-<% site.posts.each(function(post){ %>
-  <div><span><%- date(post.date) %></span><a href="<%- url_for(post.path) %>" ><%- post.title || __("Untitled") %></a></div>
+<% page.posts.each(function(post){ %>
+  <div  class="list-entry">
+  <span class="list-entry-date"><%- date(post.date, 'L') %></span>
+  <span class="list-entry-title">
+  <a href="<%- url_for(post.path) %>" >
+  <%- truncate(post.title, 30) || __("无标题") %>
+  </a>
+  </span>
+  </div>
 <% }) %>
+<% if (page.total > 1){ %>
+<div id="paginator">
+<%- paginator({prev_text: '上一页', next_text: '下一页'}) %>
+<div>
+<% } %>
 </div>

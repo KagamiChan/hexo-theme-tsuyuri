@@ -1,23 +1,52 @@
 <article class="entry">
+  <div class="entry-aside">
+    <div class="entry-meta">
+      <span>创建于 <%- date(page.date, 'L') %>
 
-  <div class="entry-header-wrap">
-    <header class="entry-header">
-        <% if(page.title) { %>
-          <h1 class="entry-title"><%- page.title || 无标题 %></h1>
-        <% } %>
-        <div>
-          <span class="entry-desc">创建于 <%- date(page.date, 'L') %>
-            <% if(page.updated){%>，修订于 <%- date(page.updated, 'L')%></span><%}%>
-        </div>
-    </header>
+      <% if (page.categories && page.categories.length){ %>
+    <div class="article-category">
+      <%- list_categories(page.categories, {
+        show_count: false,
+        class: 'article-category',
+        style: 'none',
+        separator: ' | '
+      }) %>
+    </div>
+    <% } %>
+
+    <% if (page.tags && page.tags.length){ %>
+  <%- list_tags(page.tags, {
+    show_count: false,
+    class: 'article-tag',
+    style: 'none',
+    separator: ' | '
+  }) %>
+  <% } %>
   </div>
-  <div class="entry-main">
     <div class="entry-toc">
-      <%- toc(page.content, {list_number:false}) %>
+      <% if(toc(page.content, {list_number:false})) {%><h2>目录</h2><%- toc(page.content, {list_number:false}) %> <%}%>
+    </div>
+  </div>
+
+
+
+  <div class="entry-main">
+    <div class="entry-header-wrap">
+      <header class="entry-header">
+          <% if(page.title) { %>
+            <h1 class="entry-title"><%- page.title || 无标题 %></h1>
+          <% } %>
+
+      </header>
     </div>
     <div class="entry-content">
       <%- page.content %>
     </div>
+    <footer class="entry-footer">
+      <span class="entry-nav prev"><%if(page.prev){%> <a href="<%- url_for(page.prev.path) %>">上一篇 <%- page.prev.title %></a> <%}%></span>
+      <span class="entry-nav mid"><a href="#site-header"> 回到顶部 </a></span>
+      <span class="entry-nav next"><%if(page.next){%> <a href="<%- url_for(page.next.path) %>">下一篇 <%- page.next.title %></a> <%}%></span>
+    </footer>
   </div>
-  <footer class="entry-footer"></footer>
+
 </article>
