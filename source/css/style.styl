@@ -31,6 +31,7 @@ uncolor-logo = "images/shounen_log_uncolor.png"
 a
   text-decoration: none
   color: main-color
+  border-bottom: 2px solid transparent
 
 a:visited
   color: main-color
@@ -38,7 +39,8 @@ a:visited
 a:hover
   color: second-color
   background-color: alpha(second-color,0.2)
-  border-bottom: solid 2px second-color
+  // text-decoration: underline;
+  border-bottom: 2px solid second-color
 
 .content-main
 article p
@@ -56,16 +58,39 @@ html
   height 100%
   overflow-y: scroll;
 
+
 body
   font-size 18px
   padding 0
   position: relative
-  padding-bottom: 9rem
+  padding-bottom: 6rem
   margin 0
   min-height 100%
+  width: 100%
+  min-width: 800px
   box-sizing: border-box
 
   background-color color-background
+
+#title-wrapper
+  width: 300px
+  float left
+#main-nav
+  float right
+  text-align: right;
+  a
+    display: inline-block;
+    vertical-align: bottom;
+    line-height: 75px
+    font-size: 120%
+    padding: 0 2em
+    color: color-font
+    @media screen and (max-width: breakpoint)
+      padding: 0
+  a:hover
+    color: second-color
+
+
 
 
 #site-footer
@@ -81,6 +106,11 @@ body
 #site-header
   padding-top: 1em
 
+#site-header
+#body-wrapper
+  padding-left: 1rem
+  padding-right: 1rem
+
 #site-header h1
   margin-top: 0
   text-indent: -9999em
@@ -91,7 +121,7 @@ body
   background-size: contain;
 
   display: block;
-  height:50px
+  height:75px
 
 .entry-header-wrap
   // padding-bottom 3em
@@ -105,7 +135,7 @@ body
   font-weight: 400
 
 .list-entry
-  margin: 1.5em 0
+  margin: 1em 0
 
 
 .list-entry-title
@@ -129,16 +159,13 @@ body
 #paginator .page-number
 #paginator .extend
   padding: 0 0.5em
-  border-bottom: 2px solid color-font
 
 #paginator .current
   color: main-color
-  border-color: main-color
   background-color: alpha(main-color,0.2)
 
 #paginator a:hover
   color: second-color
-  border-color: second-color
   background-color: alpha(second-color,0.2)
 
 .entry-meta
@@ -153,7 +180,9 @@ body
   @media screen and (max-width: breakpoint)
     unmove()
     stack()
-  font-size: 80%
+  .toc
+    font-size: 80%
+
 
 .entry-toc ol
   padding-left: 0
@@ -205,6 +234,8 @@ img
     text-overflow: ellipsis
     white-space: nowrap
     overflow: hidden
+    box-sizing: border-box
+    color: color-font
 
 
 .entry-nav.prev
@@ -220,4 +251,10 @@ img
     unmove()
     stack()
     padding-top: 1em
-  padding-top:6em
+  padding-top:5.5em
+  h2
+    font-weight: normal;
+    font-size: inherit
+    border-left: 2px solid main-color
+    background-color: alpha(main-color,0.2)
+    line-height: 150%
