@@ -1,4 +1,13 @@
 <div class="content-main">
+<% if (is_archive() && !is_month() ) { 
+  %>
+
+<%- list_archives({format:'YYYY 年 MM 月'}) %>
+
+
+
+<% } else { %>
+
 <% page.posts.each(function(post){ %>
   <div  class="list-entry">
   <span class="list-entry-date"><%- date(post.date, 'L') %></span>
@@ -13,5 +22,6 @@
 <div id="paginator">
 <%- paginator({prev_text: '上一页', next_text: '下一页'}) %>
 <div>
+<% } %>
 <% } %>
 </div>
